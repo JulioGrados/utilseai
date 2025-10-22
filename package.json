@@ -21,7 +21,7 @@
     "axios": "^0.21.1",
     "bcryptjs": "^2.4.3",
     "chalk": "^3.0.0",
-    "config": "../config",
+    "config": "git+https://JulioGrados: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@github.com/JulioGrados/configeai.git",
     "crypto-js": "^4.1.1",
     "csv-parser": "^3.0.0",
     "download": "^7.1.0",
