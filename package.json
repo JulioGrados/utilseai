@@ -1,0 +1,54 @@
+{
+  "name": "utils",
+  "version": "1.0.0",
+  "description": "Funciones globales",
+  "main": "index.js",
+  "scripts": {
+    "lint": "standard"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://julio_giampiere_grados@bitbucket.org/devcodela/utils.git"
+  },
+  "author": "Julio Grados",
+  "license": "MIT",
+  "homepage": "https://bitbucket.org/devcodela/utils#readme",
+  "dependencies": {
+    "@fast-csv/parse": "^4.1.2",
+    "@getbrevo/brevo": "^1.0.1",
+    "@googleapis/docs": "^2.0.0",
+    "@sendgrid/mail": "^6.5.3",
+    "axios": "^0.21.1",
+    "bcryptjs": "^2.4.3",
+    "chalk": "^3.0.0",
+    "config": "../config",
+    "crypto-js": "^4.1.1",
+    "csv-parser": "^3.0.0",
+    "download": "^7.1.0",
+    "facebook-nodejs-business-sdk": "^12.0.1",
+    "googleapis": "^111.0.0",
+    "http-build-query": "^0.7.0",
+    "js-base64": "^3.7.2",
+    "js-cookie": "^2.2.1",
+    "jspdf": "^2.5.1",
+    "jspdf-autotable": "^3.3.1",
+    "moment": "^2.29.3",
+    "moodle-client": "^0.5.2",
+    "mysql": "^2.18.1",
+    "pdf-to-base64": "^1.0.3",
+    "sha256": "^0.2.0",
+    "slug": "^5.2.0",
+    "string-similarity": "^4.0.1",
+    "window": "^4.2.7"
+  },
+  "devDependencies": {
+    "debug": "^4.1.1",
+    "standard": "^14.3.1"
+  },
+  "directories": {
+    "lib": "lib"
+  },
+  "bugs": {
+    "url": "https://bitbucket.org/devcodela/utils/issues"
+  }
+}
