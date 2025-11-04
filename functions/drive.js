@@ -1,5 +1,4 @@
 const { google } = require('googleapis')
-const slides = google.slides('v1')
 const docs = require('@googleapis/docs')
 
 const id = require('config').google.id
@@ -23,6 +22,68 @@ const drive = google.drive({
   version: 'v3',
   auth: oauth2Client
 })
+
+const slides = google.slides({ 
+  version: 'v1', 
+  auth: oauth2Client 
+})
+
+
+const identificarCuenta = async () => {
+  try {
+    const oauth2 = google.oauth2({ version: 'v2', auth: oauth2Client })
+    const userInfo = await oauth2.userinfo.get()
+    
+    console.log('\n🔑 CUENTA OAUTH ACTUAL:')
+    console.log('   Email:', userInfo.data.email)
+    console.log('   Nombre:', userInfo.data.name)
+    console.log('\n⚠️  ACCIÓN REQUERIDA:')
+    console.log(`   1. Abre: https://docs.google.com/presentation/d/1JHo73Z83XXgq8bhShItJu3dr_TRwt4UZOcMGlA7grdo/edit`)
+    console.log(`   2. Click en "Compartir"`)
+    console.log(`   3. Agrega: ${userInfo.data.email}`)
+    console.log(`   4. Permisos: "Editor"`)
+    console.log(`   5. Espera 2 minutos`)
+    console.log(`   6. Prueba de nuevo\n`)
+    
+    return userInfo.data.email
+  } catch (error) {
+    console.error('❌ Error obteniendo info de cuenta:', error.message)
+  }
+}
+
+// 2. Listar archivos accesibles
+const listarArchivos = async () => {
+  try {
+    const response = await drive.files.list({
+      pageSize: 10,
+      fields: 'files(id, name, mimeType)',
+      q: "mimeType='application/vnd.google-apps.presentation'"
+    })
+    
+    console.log('\n📂 PRESENTACIONES ACCESIBLES:')
+    if (response.data.files.length === 0) {
+      console.log('   Ninguna presentación accesible')
+    } else {
+      response.data.files.forEach(file => {
+        console.log(`   - ${file.name} (ID: ${file.id})`)
+      })
+    }
+  } catch (error) {
+    console.error('❌ Error listando archivos:', error.message)
+  }
+}
+
+// 3. Ejecutar diagnóstico
+const diagnosticar = async () => {
+  console.log('=================================')
+  console.log('     DIAGNÓSTICO DE ACCESO')
+  console.log('=================================')
+  
+  await identificarCuenta()
+  await listarArchivos()
+  
+  console.log('\n=================================\n')
+}
 
 const getDocs = async ( googleId ) => {
   try {
@@ -3232,6 +3293,7 @@ const deleteFile = async ( googleId ) => {
 }
 
 module.exports = {
+  diagnosticar,
   getDocs,
   getSlides,
   copyDocs,
