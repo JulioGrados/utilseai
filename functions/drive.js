@@ -38,6 +38,16 @@ const getDocs = async ( googleId ) => {
 
 const getSlides = async (googleId) => {
   try {
+    console.log('1. Verificando acceso al archivo...')
+    const file = await drive.files.get({
+      fileId: googleId,
+      fields: 'id, name, owners, capabilities'
+    })
+    
+    console.log('✅ Archivo encontrado:', file.data.name)
+    console.log('   Propietarios:', file.data.owners)
+    console.log('   Puedo copiar:', file.data.capabilities?.canCopy)
+
     const response = await slides.presentations.get({
       auth: oauth2Client,
       presentationId: googleId
