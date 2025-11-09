@@ -2,12 +2,12 @@ const path = require('path')
 const config = require('config')
 const download = require('download')
 
-let SERVER_PATH
-if (config.media.env === 'production') {
-  SERVER_PATH = '/opt/media/uploads'
-} else {
-  SERVER_PATH = path.join(__dirname, '../../media/uploads')
-}
+let SERVER_PATH = '/var/www/apps/media/uploads'
+// if (config.media.env === 'production') {
+//   SERVER_PATH = '/var/www/apps/media/uploads'
+// } else {
+//   SERVER_PATH = path.join(__dirname, '../../media/uploads')
+// }
 
 const saveFile = async (file, route) => {
   const cleanName = file.name.toLowerCase().replace(/\s/g, '')
@@ -35,6 +35,7 @@ const saveFileCreateName = async (file, route) => {
   const code = filter.substring(filter.length - 4, filter.length - 12)
 
   const fileroot = route + '/' + file.md5 + '-' + code + '-' + part + '.' + ext
+  console.log('fileroot', fileroot)
   try {
     await file.mv(SERVER_PATH + fileroot)
   } catch (error) {
