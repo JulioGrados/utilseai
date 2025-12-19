@@ -8,6 +8,10 @@ const listCourses = async params => {
   return get('/courses', params)
 }
 
+const listCoursesAi = async params => {
+  return get('/courses/ai', params)
+}
+
 const listOpenCourses = async params => {
   return get('/open/courses', params)
 }
@@ -38,6 +42,7 @@ const removeCourse = async id => {
 
 module.exports = {
   listCourses,
+  listCoursesAi,
   createCourse,
   updateCourse,
   detailCourse,
