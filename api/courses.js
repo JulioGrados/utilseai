@@ -13,7 +13,7 @@ const listCoursesAi = async params => {
 }
 
 const createCoursesCreateAi = async params => {
-  return post('/courses/ai', params)
+  return post('/courses/ai', params, true)
 }
 
 const listOpenCourses = async params => {
