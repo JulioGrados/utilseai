@@ -9,7 +9,7 @@ const listOpenChapterVersions = async params => {
 }
 
 const createChapterVersion = async data => {
-  return post('/chapterversions', data, true)
+  return post('/chapterversions', data)
 }
 
 const detailChapterVersion = async (id, params) => {
@@ -17,7 +17,7 @@ const detailChapterVersion = async (id, params) => {
 }
 
 const updateChapterVersion = async (id, data) => {
-  return put(`/chapterversions/${id}`, data, true)
+  return put(`/chapterversions/${id}`, data)
 }
 
 const removeChapterVersion = async id => {
