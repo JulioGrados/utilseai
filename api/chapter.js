@@ -17,7 +17,7 @@ const detailChapter = async (id, params) => {
 }
 
 const updateChapter = async (id, data) => {
-  return put(`/chapters/${id}`, data, true)
+  return put(`/chapters/${id}`, data)
 }
 
 const removeChapter = async id => {
