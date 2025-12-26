@@ -24,11 +24,22 @@ const removeChapterVersion = async id => {
   return remove(`/chapterversions/${id}`)
 }
 
+const setFavoriteVersion = async (chapterId, versionId) => {
+  return put(`/chapters/${chapterId}/favorite/${versionId}`, {}, true)
+}
+
+const editVersion = async (versionId, editPrompt) => {
+  return put(`/chapterversions/${versionId}/edit`, { editPrompt }, true)
+}
+
+
 module.exports = {
   listChapterVersions,
   createChapterVersion,
   updateChapterVersion,
   detailChapterVersion,
   removeChapterVersion,
-  listOpenChapterVersions
+  listOpenChapterVersions,
+  setFavoriteVersion,
+  editVersion
 }
