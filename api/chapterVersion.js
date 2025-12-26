@@ -25,11 +25,11 @@ const removeChapterVersion = async id => {
 }
 
 const setFavoriteVersion = async (chapterId, versionId) => {
-  return put(`/chapters/${chapterId}/favorite/${versionId}`, {}, true)
+  return put(`/chapters/${chapterId}/favorite/${versionId}`, {})
 }
 
 const editVersion = async (versionId, editPrompt) => {
-  return put(`/chapterversions/${versionId}/edit`, { editPrompt }, true)
+  return put(`/chapterversions/${versionId}/edit`, editPrompt)
 }
 
 
