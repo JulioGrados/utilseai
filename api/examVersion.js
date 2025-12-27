@@ -24,11 +24,21 @@ const removeExamVersion = async id => {
   return remove(`/examversions/${id}`)
 }
 
+const setFavoriteVersion = async (examId, versionId) => {
+  return put(`/exams/${examId}/favorite/${versionId}`, {}, true)
+}
+
+const editVersion = async (versionId, editPrompt) => {
+  return put(`/examversions/${versionId}/edit`, { editPrompt }, true)
+}
+
 module.exports = {
   listExamVersions,
   createExamVersion,
   updateExamVersion,
   detailExamVersion,
   removeExamVersion,
-  listOpenExamVersions
+  listOpenExamVersions,
+  setFavoriteVersion,
+  editVersion
 }
