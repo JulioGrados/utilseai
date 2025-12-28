@@ -29,7 +29,7 @@ const setFavoriteVersion = async (examId, versionId) => {
 }
 
 const editVersion = async (versionId, editPrompt) => {
-  return put(`/examversions/${versionId}/edit`, { editPrompt })
+  return put(`/examversions/${versionId}/edit`, editPrompt)
 }
 
 module.exports = {
