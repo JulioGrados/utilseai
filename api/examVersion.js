@@ -9,7 +9,7 @@ const listOpenExamVersions = async params => {
 }
 
 const createExamVersion = async data => {
-  return post('/examversions', data, true)
+  return post('/examversions', data)
 }
 
 const detailExamVersion = async (id, params) => {
@@ -17,7 +17,7 @@ const detailExamVersion = async (id, params) => {
 }
 
 const updateExamVersion = async (id, data) => {
-  return put(`/examversions/${id}`, data, true)
+  return put(`/examversions/${id}`, data)
 }
 
 const removeExamVersion = async id => {
@@ -25,11 +25,11 @@ const removeExamVersion = async id => {
 }
 
 const setFavoriteVersion = async (examId, versionId) => {
-  return put(`/exams/${examId}/favorite/${versionId}`, {}, true)
+  return put(`/exams/${examId}/favorite/${versionId}`, {})
 }
 
 const editVersion = async (versionId, editPrompt) => {
-  return put(`/examversions/${versionId}/edit`, { editPrompt }, true)
+  return put(`/examversions/${versionId}/edit`, { editPrompt })
 }
 
 module.exports = {
