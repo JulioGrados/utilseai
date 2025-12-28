@@ -9,7 +9,7 @@ const listOpenExams = async params => {
 }
 
 const createExam = async data => {
-  return post('/exams', data, true)
+  return post('/exams', data)
 }
 
 const detailExam = async (id, params) => {
@@ -17,7 +17,7 @@ const detailExam = async (id, params) => {
 }
 
 const updateExam = async (id, data) => {
-  return put(`/exams/${id}`, data, true)
+  return put(`/exams/${id}`, data)
 }
 
 const removeExam = async id => {
